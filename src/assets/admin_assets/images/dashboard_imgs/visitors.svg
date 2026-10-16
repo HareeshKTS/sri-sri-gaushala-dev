@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 20 306 183">
+    <defs>
+        <filter id="v64g50u5qa" x="0" y="0" width="378.002" height="254.996" filterUnits="userSpaceOnUse">
+            <feOffset dy="16"/>
+            <feGaussianBlur stdDeviation="12" result="blur"/>
+            <feFlood flood-opacity=".071"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g style="filter:url(#v64g50u5qa)">
+        <path data-name="Subtraction 5" d="M21785.98-15059h-286a10.012 10.012 0 0 1-10-10v-163a10.011 10.011 0 0 1 10-10h286a9.939 9.939 0 0 1 7.072 2.928 9.939 9.939 0 0 1 2.928 7.071v163a9.94 9.94 0 0 1-2.928 7.072 9.939 9.939 0 0 1-7.072 2.929Zm-143-81.007c-8.537 0-20.4 2.255-29.521 5.61a44.765 44.765 0 0 0-12.539 6.6c-3.426 2.764-5.162 5.716-5.162 8.773v15.738h94.441v-15.738c0-3.057-1.736-6.009-5.16-8.773a44.8 44.8 0 0 0-12.539-6.6c-9.117-3.357-20.98-5.612-29.518-5.612Zm0-57.715a26.263 26.263 0 0 0-26.234 26.234 26.263 26.263 0 0 0 26.234 26.234 26.261 26.261 0 0 0 26.229-26.234 26.261 26.261 0 0 0-26.227-26.236Z" transform="translate(-21453.98 15262)" style="fill:#fff"/>
+    </g>
+</svg>
