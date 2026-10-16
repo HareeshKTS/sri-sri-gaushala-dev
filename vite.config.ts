@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
       tailwindcss(),
     ],
     // base: env.VITE_APP_BASEURL,
-    base: '/sri_sri_gaushala/',
+    base: '/',
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
