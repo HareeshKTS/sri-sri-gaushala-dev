@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { fadeBottom, fadeLeft } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom, fadeLeft } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 interface Faq {
   id: string;

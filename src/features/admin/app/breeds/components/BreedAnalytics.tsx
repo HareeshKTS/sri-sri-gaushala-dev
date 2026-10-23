@@ -56,12 +56,12 @@ const BreedAnalytics = () => {
                             <div
                                 className=" absolute top-1/2 right-4 translate-x-0 -translate-y-1/2
                                                     h-full p-2 flex flex-col items-start  justify-center gap-0   
-                                                   font-stretch-normal leading-snug"
+                                                   font-stretch-normal leading-snug font-gotham"
                             >
-                                <p className="font-gotham font-bold tracking-[0.17px] text-[clamp(20px,2.5vw,1.5rem)] text-[#002602]">
+                                <p className=" font-bold tracking-[0.17px] text-[clamp(20px,2.5vw,1.5rem)] text-[#002602]">
                                     {item.title}
                                 </p>
-                                <p className="font-medium text-green-theme  text-[clamp(18px,2.5vw,2.2rem)]">
+                                <p className="font-saira font-medium text-green-theme  text-[clamp(18px,2.5vw,2.2rem)]">
                                     {item.count}
                                 </p>
                                 <div className="flex gap-1 items-center">

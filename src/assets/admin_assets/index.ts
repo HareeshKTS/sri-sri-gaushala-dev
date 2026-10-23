@@ -44,6 +44,8 @@ import farm from './images/gallery_imgs/farm.png';
 import gaushala from './images/gallery_imgs/gaushala.png';
 import visitors_icon from './images/gallery_imgs/visitors.png';
 import gurudev from './images/gallery_imgs/gurudev.png';
+import blogs_one from './images/blogs_imgs/blogs_one.png';
+import blogs_two from './images/blogs_imgs/blogs_two.png';
 export {
     GaushalaCowLogoGreen,
     LoginCow,
@@ -90,5 +92,7 @@ export {
     farm,
     gaushala,
     gurudev,
-    visitors_icon
+    visitors_icon,
+    blogs_one,
+    blogs_two
 }

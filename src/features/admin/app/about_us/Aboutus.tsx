@@ -43,8 +43,8 @@ const AboutUs = () => {
     };
 
     return (
-        <form className="h-full flex flex-col justify-between" onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="px-4">
+        <form className="h-full flex flex-col overflow-auto" onSubmit={form.handleSubmit(onSubmit)}>
+            <div className="px-4 overflow-auto">
                 <AboutUsBanner form={form} />
 
               <SanctuarySection form={form} />
@@ -53,12 +53,12 @@ const AboutUs = () => {
 
      <VisionMissionSection form={form} />  
             </div>
-            <div className="flex justify-end px-4 mt-8 sticky bottom-0">
+            <div className="flex justify-end px-6 mt-8">
                 <CustomButton
                     type="submit"
                     Text="Submit"
                     TextClassName="text-sm! font-medium! font-saira!"
-                    className="bg-green-theme! text-white w-fit! px-5! py-2!  rounded-sm text-sm! font-72! font-normal flex flex-row-reverse!"
+                    className="bg-green-theme! text-white w-fit! px-5! py-2! h-8!  rounded-sm text-sm! font-72! font-normal flex flex-row-reverse!"
                 />
 
 

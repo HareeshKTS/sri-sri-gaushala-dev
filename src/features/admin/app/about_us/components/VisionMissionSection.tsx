@@ -10,7 +10,7 @@ interface Props {
 function VisionMissionSection({ form }: Props) {
   return (
     <div className='md:flex justify-between gap-6'>
-      <div className='w-full flex flex-col gap-y-8 p-4'>
+      <div className='w-full flex flex-col gap-y-8  sm:p-4'>
       <div className='w-full space-y-2'>
         <FormInputField
           label="Vision Title"
@@ -35,7 +35,7 @@ function VisionMissionSection({ form }: Props) {
       </div>
       </div>
       <div className='border-r'/>
-       <div className='w-full flex flex-col gap-y-8 p-4'>
+       <div className='w-full flex flex-col gap-y-8 sm:p-4'>
       <div className='w-full space-y-2'>
         <FormInputField
           label="Mission Title"

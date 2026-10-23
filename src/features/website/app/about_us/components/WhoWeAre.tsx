@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { fadeBottom, fadeLeft, fadeRight, reveal, stagger } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom, fadeLeft, fadeRight, reveal, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 function WhoWeAre() {
   return (

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { fadeBottom } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 interface Gaushala {
   id: string;
   name: string;

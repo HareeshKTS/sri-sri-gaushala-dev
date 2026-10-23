@@ -7,7 +7,7 @@ import {
   GururudevLeftImage,
   GururudevRightImage,
 } from "@/assets/website_assets";
-import { fadeBottom, fadeLeft, fadeRight, popIn, reveal, slideIn, stagger } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom, fadeLeft, fadeRight, popIn, reveal, slideIn, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 function Inspiration() {
   return (

@@ -85,7 +85,7 @@ const AddBreeds = ({ setOpen }: AddBreedsProps) => {
 
     const selectedFile = selectedFiles[0];
 
-    const handleHomeData = async (data: BreedFormValues) => {
+    const handleBreedData = async (data: BreedFormValues) => {
         const isValid = await trigger();
         if (!isValid) return;
         const payload = {
@@ -115,7 +115,7 @@ const AddBreeds = ({ setOpen }: AddBreedsProps) => {
                     </div>
                 </div>
                 <Card className="overflow-auto px-2 shadow rounded-lg my-2 flex flex-col flex-1">
-                    <form onSubmit={handleSubmit(handleHomeData)} className="flex flex-col overflow-auto flex-1  py-1">
+                    <form onSubmit={handleSubmit(handleBreedData)} className="flex flex-col overflow-auto flex-1  py-1">
                         <div className="flex-1 flex flex-col overflow-auto gap-4 px-2">
                             <div className="relative w-full  min-h-40 max-h-40 h-40">
                                 <div
@@ -188,7 +188,7 @@ const AddBreeds = ({ setOpen }: AddBreedsProps) => {
                                         label="Breed Type"
                                         options={breedItems}
                                         placeholder="Select breed"
-                                        triggerClassName="rounded-sm! w-full h-[40px]!  text-[#a2d5a4]! border-input! focus:border-[#a2d5a4]!
+                                        triggerClassName="rounded-sm! w-full h-[40px]!  text-[#4caf50]! border-input! focus:border-[#a2d5a4]!
                                          focus-visible:border-[#a2d5a4]! bg-[#F8F6F2]!"
                                         rules={{ required: "required" }}
                                     />

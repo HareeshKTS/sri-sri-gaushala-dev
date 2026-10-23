@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { useLenis } from "lenis/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { EASE } from "@/shared/animations/WebsiteAnimations";
+import { EASE } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 interface LightboxPhoto {
   id: string;

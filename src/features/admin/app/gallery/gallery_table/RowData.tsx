@@ -60,6 +60,11 @@ const RowData = ({ item, checked, onSelectChange }: RowDataProps) => {
                 {item.views}
             </TableCell>
             <TableCell
+                className="text-center text-[#00cb08]!"
+            >
+                {item.status}
+            </TableCell>
+            <TableCell
             >
                 <div className="flex items-center justify-center gap-4">
                     <SquarePen strokeWidth={2.25} size={20} color="#0099ff" />

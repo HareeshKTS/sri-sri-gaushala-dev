@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
     Controller,
     type Control,
@@ -10,6 +10,9 @@ import { Eye, EyeOff } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox";
+import { DotPulse } from "ldrs/react";
 
 // Form Input --------------------------------------->
 
@@ -365,3 +368,204 @@ const FormRadioInput = <T extends FieldValues>({
 };
 
 export default FormRadioInput;
+
+
+// Searchable Dropdown
+
+type Option = {
+    id: number | string;
+    name: string | null;
+};
+interface FormDropdownFieldProps<T extends FieldValues> {
+    name: Path<T>;
+    control: Control<T>;
+    options: Option[];
+    label?: string;
+    placeholder?: string;
+    LabelClassName?: string;
+    InputClassName?: string;
+    ErrorClassName?: string;
+    containerClassName?: string;
+    onChange?: (value: Option | null) => void;
+    disabled?: boolean;
+    IsOptionsLoading?: boolean;
+}
+
+export const FormDropdownField = <T extends FieldValues>({
+    name,
+    control,
+    options = [],
+    label,
+    placeholder = "Select...",
+    LabelClassName = "",
+    InputClassName = "",
+    ErrorClassName = "",
+    containerClassName = "",
+    disabled = false,
+    IsOptionsLoading = false,
+    onChange,
+}: FormDropdownFieldProps<T>) => {
+    const [search, setSearch] = useState("");
+    const [open, setOpen] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const safeOptions = Array.isArray(options) ? options : [];
+
+    const filteredOptions = useMemo(() => {
+        if (!search) return safeOptions;
+
+        return safeOptions.filter((option) =>
+            (option.name ?? "").toLowerCase().includes(search.toLowerCase())
+        );
+    }, [search, safeOptions]);
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field, fieldState }) => {
+                const selected =
+                    field.value &&
+                        typeof field.value === "object" &&
+                        "id" in field.value
+                        ? (field.value as Option)
+                        : null;
+
+                return (
+                    <div
+                        className={`flex flex-col gap-1 w-full relative ${containerClassName}`}
+                    >
+                        {label && (
+                            <Label
+                                htmlFor={field.name}
+                                className={`text-[clamp(0.8rem,0.9vw,1rem)] tracking-[0.2px] font-[510] font-72 text-[#32363a] ${LabelClassName}`}
+                            >
+                                {label}
+                            </Label>
+                        )}
+
+                        <Combobox
+                            items={filteredOptions}
+                            value={selected ? String(selected.id) : undefined}
+                            open={open}
+                            onOpenChange={setOpen}
+                            onValueChange={(id) => {
+                                const selectedOption =
+                                    safeOptions.find(
+                                        (item) => String(item.id) === String(id)
+                                    ) ?? null;
+
+                                field.onChange(selectedOption);
+                                onChange?.(selectedOption);
+
+                                setSearch("");
+                                setOpen(false);
+                            }}
+                        >
+                            <ComboboxInput
+                                disabled={disabled}
+                                placeholder={placeholder}
+                                showClear
+                                value={search || selected?.name || ""}
+                                onFocus={() => {
+                                    setOpen(true);
+                                    setIsFocused(true);
+                                }}
+                                onBlur={() => {
+                                    setIsFocused(false);
+                                    setSearch("");
+                                }}
+                                onChange={(e) => {
+                                    setSearch(e.target.value);
+                                    setOpen(true);
+                                }}
+                                className={`
+                                bg-[#f8f6f2]
+                                shadow-none
+                                focus-visible:ring-0
+                                focus-visible:ring-offset-0
+                                ${fieldState.error
+                                        ? "border-[#bb0000]!"
+                                        : ""
+                                    }
+                                ${isFocused && !fieldState.error
+                                        ? "focus:border-[#a2d5a4]! focus-visible:border-[#a2d5a4]!"
+                                        : ""
+                                    }
+                                text-[clamp(0.9rem,0.9vw,1rem)]
+                                outline-none
+                                h-full
+                                font-gotham!
+                                placeholder:font-gotham! placeholder:text-[#cbcbcb]
+                                min-h-10
+                                rounded-md
+                                text-[#6a6d70]
+                                ring-0!
+                                
+                                ${InputClassName ?? ""}
+                            `}
+                            />
+
+                            <ComboboxContent
+                                className="
+                                    ring-0
+                                    rounded-none
+                                    bg-white
+                                    shadow-md
+                                    shadow-gray-300
+                                    border
+                                    mt-0.5
+                                    "
+                            >
+                                {filteredOptions.length === 0 ? (
+                                    <ComboboxEmpty className="min-h-[120px] flex items-center justify-center">
+                                        {IsOptionsLoading ? (
+                                            <DotPulse
+                                                size={35}
+                                                speed="1.3"
+
+                                            />
+                                        ) : (
+                                            "No Options Found"
+                                        )}
+                                    </ComboboxEmpty>
+                                ) : (
+                                    <ComboboxList>
+                                        {(item: Option) => (
+                                            <ComboboxItem
+                                                key={item.id}
+                                                value={String(item.id)}
+                                                className="
+                                                    cursor-pointer
+                                                    rounded-none
+                                                    px-2
+                                                    py-1.5
+                                                    font-medium
+                                                    hover:bg-[#B9D4BB]
+                                                    data-highlighted:bg-[#B9D4BB]
+                                                    data-highlighted:text-green-theme
+                                                    data-selected:bg-green-theme!
+                                                    "
+                                            >
+                                                {item.name}
+                                            </ComboboxItem>
+                                        )}
+                                    </ComboboxList>
+                                )}
+                            </ComboboxContent>
+                        </Combobox>
+
+                        {fieldState.error && (
+                            <p
+                                className={`absolute -bottom-4 right-0 text-[#bb0000] text-[11px] font-72 ${ErrorClassName}`}
+                            >
+                                {fieldState.error.message}
+                            </p>
+                        )}
+                    </div>
+                );
+            }}
+        />
+    );
+};

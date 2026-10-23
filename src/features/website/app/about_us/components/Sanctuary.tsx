@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { SanctuaryVideo } from "@/assets/website_assets";
-import { fadeLeft, reveal, stagger } from "@/shared/animations/WebsiteAnimations";
+import { fadeLeft, reveal, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
  
 function Sanctuary() {
   const reduce = useReducedMotion();

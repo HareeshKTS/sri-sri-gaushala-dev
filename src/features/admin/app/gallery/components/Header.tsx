@@ -1,4 +1,5 @@
-import { CirclePlus } from "lucide-react";
+import { Upload } from "lucide-react";
+import type { Dispatch, SetStateAction } from "react";
 import CustomButton from "@/shared/CustomButton";
 import CustomSearchBar from "@/shared/CustomSearchBar"
 import CustomSelect from "@/shared/CustomSelect";
@@ -14,9 +15,13 @@ const StatusItems: SelectStatus[] = [
   { label: "Recent Album", value: "Recent Album" },
 ];
 
-const Header = () => {
+type HeaderProps = {
+  setShowUploadModal: Dispatch<SetStateAction<boolean>>
+}
+
+const Header = ({ setShowUploadModal }: HeaderProps) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between">
+    <div className="flex flex-col lg:flex-row gap-2 lg:items-center justify-between sticky top-0 z-50 backdrop-blur-md rounded-sm">
       <div className="flex-1 flex flex-col lg:flex-row gap-4  lg:items-center">
         <CustomSearchBar placeholder="Search Album" />
         <div>
@@ -29,12 +34,12 @@ const Header = () => {
       </div>
       <div className="self-end lg:self-auto">
         <CustomButton
-          // onClick={() => setOpen(true)}
+          onClick={() => setShowUploadModal(true)}
           type="button"
-          Text="Create Album"
+          Text="Upload New Image"
           TextClassName="text-sm! font-medium! font-saira!"
           className='w-fit! px-2! py-1! bg-green-theme! rounded-sm bg-blue-theme! shadow-md! flex flex-row-reverse! gap-2!'
-          Icon={<CirclePlus strokeWidth={2.25} size={16} color="#fff" />}
+          Icon={<Upload strokeWidth={2.25} size={16} color="#fff" />}
         />
       </div>
 

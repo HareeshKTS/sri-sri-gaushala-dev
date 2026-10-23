@@ -1,9 +1,12 @@
+import { useState } from "react";
 import CustomButton from "@/shared/CustomButton";
 import type { FeqDataTypes } from "../Types";
 import { CirclePlus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import RowData from "./RowData";
+import AddEditFeq from "../components/modals/AddEditFeq";
+import CustomModal from "@/shared/CustomModal";
 
 type FeqColumn = {
   name: string;
@@ -36,10 +39,12 @@ const FeqHeaderColumn: FeqColumn[] = [
 ];
 
 const GausewaTable = () => {
+  const [showFeqModal, setShowFeqModal] = useState<boolean>(false)
   return (
     <div>
       <div className="flex justify-end">
         <CustomButton
+          onClick={() => setShowFeqModal(true)}
           type="button"
           Text="Add FAQ"
           TextClassName="text-sm! font-medium!"
@@ -82,6 +87,18 @@ const GausewaTable = () => {
           </TableBody>
         </Table>
       </Card>
+      {
+        showFeqModal && (
+          <CustomModal
+            open={showFeqModal}
+            onOpenChange={setShowFeqModal}
+          >
+            <AddEditFeq
+              setOpen={setShowFeqModal}
+            />
+          </CustomModal>
+        )
+      }
     </div>
   )
 }

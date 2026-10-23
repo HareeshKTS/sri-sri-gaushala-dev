@@ -74,7 +74,7 @@ const onDrop = useCallback(
         <section className="md:flex gap-6 px-2 sm:px-6  border-b border-b-[#D4DFD5] pb-3 md:pb-0">
 
             {/* Banner image */}
-            <div className="relative md:w-[30%] py-6">
+            <div className="relative md:w-[30%] xl:w-[35%] py-6">
                 <label className="mb-2 block text-sm font-medium">
                     About Us Banner Image
                 </label>
@@ -125,13 +125,15 @@ const onDrop = useCallback(
                         control={form.control}
                         label="Banner Quote"
                         placeholder="Enter Quote"
+                        className="min-h-36!"
                         rules={{ required: "Required" }}
                     />
                 </div>
             </div>
           <div className="border-r border-[#D4DFD5]"/>
             {/* Right side */}
-            <div className="flex flex-col gap-y-3 sm:grid grid-cols-2  gap-6 lg:col-span-2 md:w-[70%]">
+            {/* flex flex-col gap-y-3 sm:grid grid-cols-2  gap-6 lg:col-span-2 md:w-[70%] */}
+            <div className="md:w-[70%] space-y-3 py-6">
 
                 {/* <div>
                     <label className="text-sm font-medium">
@@ -143,6 +145,7 @@ const onDrop = useCallback(
                         className="w-full rounded-md border p-2"
                     />
                 </div> */}
+                <div className="flex gap-4">
                 <FormInputField
                     label="Section Title"
                     name="sectionTitle"
@@ -173,6 +176,7 @@ const onDrop = useCallback(
                     control={form.control}
                     rules={{ required: "required" }}
                 />
+                </div>
 
                 <div className="col-span-2">
                     {/* <label className="text-sm font-medium">
@@ -189,6 +193,7 @@ const onDrop = useCallback(
                         control={form.control}
                         label="About Us Description"
                         LabelClassName="font-medium text-sm"
+                        className="min-h-36!"
                         placeholder="Enter description"
                         rules={{ required: "Required" }}
                     />

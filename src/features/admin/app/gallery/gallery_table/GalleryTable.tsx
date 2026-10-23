@@ -17,6 +17,7 @@ const GalleryDetails: GalleryTableTypes[] = Array(15).fill(null).map((_, index) 
   type: `JPG`,
   date: "18 Jul 2026",
   views: "190",
+  status: "Active",
 }))
 
 const GalleryHeader: GalleryColumn[] = [
@@ -25,6 +26,7 @@ const GalleryHeader: GalleryColumn[] = [
   { name: "Type" },
   { name: "Date" },
   { name: "Views" },
+  { name: "Status" },
   { name: "Action" },
 ];
 
@@ -60,7 +62,7 @@ const GalleryTable = () => {
         <p className="font-saira text-sm font-medium py-1">Recent Media</p>
         <Card className=" h-100 flex flex-col overflow-auto gap-2">
           <Table className="font-normal flex-1">
-            <TableHeader className="sticky top-0 z-50 border-b">
+            <TableHeader className="sticky top-0 z-10 border-b">
               <TableRow>
                 <TableHead
                   className={`

@@ -18,7 +18,10 @@ const Home = lazy(() => import("@/features/admin/app/home/Home"));
 const Aboutus = lazy(() => import("@/features/admin/app/about_us/Aboutus"));
 const Breeds = lazy(() => import("@/features/admin/app/breeds/Breeds"));
 const Settings = lazy(() => import("@/features/admin/app/settings/Settings"));
+const Videos = lazy(() => import("@/features/admin/app/videos/Videos"));
 const Gausewa = lazy(() => import("@/features/admin/app/gausewa/Gausewa"));
+const Testimonial = lazy(() => import("@/features/admin/app/testimonial/Testimonial"));
+const BlogsAndArticles = lazy(() => import("@/features/admin/app/blogs_and_articles/BlogsAndArticles"));
 function AdminRoutes() {
     const routes = useRoutes([
         {
@@ -49,6 +52,9 @@ function AdminRoutes() {
                         { path: "/breeds", element: <Breeds /> },
                         { path: "/gausewa", element: <Gausewa /> },
                         { path: "/gallery", element: <Gallery /> },
+                        { path: "/testimonials", element: <Testimonial /> },
+                        { path: "/videos", element: <Videos /> },
+                        { path: "/blog_and_articles/*", element: <BlogsAndArticles /> },
                         { path: "/settings", element: <Settings /> },
                         { path: "*", element: <PageNotFound route_name={`/${admin_route_name}`} /> },
                     ],

@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BLOGS_BASE_PATH, formatBlogDate, type Article } from "./BlogsDummyData";
-import { fadeBottom } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 interface Props {
   article: Article;
   index?: number;

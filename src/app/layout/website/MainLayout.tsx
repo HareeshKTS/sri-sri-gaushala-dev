@@ -13,7 +13,7 @@ const MainLayout = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full data-scroll-root">
       <SmoothScroll />
       <NavBar />
       <main className="hide-scrollbar">

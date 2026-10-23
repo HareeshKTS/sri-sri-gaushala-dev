@@ -1,7 +1,8 @@
-import { useState, type KeyboardEvent } from "react";
+import { useEffect,  type KeyboardEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { fadeBottom } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 import { ManyCows } from "@/assets/website_assets";
+import { useSearchParams } from "react-router";
 
 
 type BreedTabKey = "cows" | "bulls";
@@ -106,7 +107,24 @@ const TABS: { key: BreedTabKey; label: string }[] = [
   { key: "bulls", label: "Bulls" },
 ];
 export function BreedsShowcase() {
-  const [active, setActive] = useState<BreedTabKey>("cows");
+  // const [active, setActive] = useState<BreedTabKey>("cows");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeParam = searchParams.get("type");
+  const active: BreedTabKey = TABS.some((t) => t.key === typeParam) ? (typeParam as BreedTabKey) : "cows";
+  const setActive = (key: BreedTabKey) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev); // keeps any other query params
+        next.set("type", key);
+        return next;
+      },
+      { replace: true } // tab switches don't pile up history entries
+    );
+  };
+  useEffect(() => {
+    if (typeParam !== active) setActive(active);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typeParam]);
   const breeds = BREEDS[active];
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
@@ -166,7 +184,7 @@ export function BreedsShowcase() {
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setActive(tab.key)}
                 className={[
-                  "relative w-[140px] cursor-pointer border py-1.5 font-saira text-base font-medium uppercase tracking-wide transition-colors duration-300 sm:w-[200px] sm:py-1.5 sm:text-xl lg:w-[230px]",
+                  "relative w-[100px] md:w-[140px] cursor-pointer border py-1.5 font-saira text-base font-medium uppercase tracking-wide transition-colors duration-300 sm:w-[200px] sm:py-1.5 sm:text-xl lg:w-[230px]",
                   isActive
                     ? "rounded-xl border-[#b76e00] bg-[#ff9900] text-white shadow-sm"
                     : "rounded-xl border-transparent bg-white text-black shadow-[0_3px_8px_rgba(0,0,0,0.15)]",
@@ -179,7 +197,7 @@ export function BreedsShowcase() {
         })}
       </div>
 
-      <div className={`rounded-3xl border border-[#b76e00]  pb-6 pt-8 px-6 sm:pb-8 sm:pt-10`}>
+      <div className={`rounded-3xl border border-[#b76e00]  pb-3 md:pb-6 pt-5 md:pt-8 px-2.5 md:px-6 sm:pb-8 sm:pt-10`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={active}

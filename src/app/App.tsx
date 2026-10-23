@@ -5,7 +5,7 @@ import CustomPageLoader from "@/shared/loaders/CustomPageLoader";
 import AppRoutes from "./router/AppRoutes";
 const App = () => {
   return (
-    <BrowserRouter basename={'/'}>
+    <BrowserRouter basename={import.meta.env.VITE_APP_BASEURL}>
       <div className='h-full '>
         <Toaster
           position="top-right"

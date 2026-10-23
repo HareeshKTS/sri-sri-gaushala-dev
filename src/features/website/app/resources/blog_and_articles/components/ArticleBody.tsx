@@ -1,7 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 import { motion } from "motion/react";
 import type { Block } from "./BlogsDummyData";
-import { fadeBottom, stagger } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 const renderInline = (text: string): ReactNode =>
   text.split("**").map((part, i) =>

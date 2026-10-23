@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { EASE, fadeBottom, stagger } from "@/shared/animations/WebsiteAnimations";
+import { EASE, fadeBottom, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 interface Props {
   image: string;

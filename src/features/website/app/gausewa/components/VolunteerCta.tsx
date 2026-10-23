@@ -3,7 +3,7 @@ import { motion, useInView } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ManyCows } from "@/assets/website_assets";
-import { EASE, VIEWPORT, fadeBottom, fadeLeft, fadeRight, popIn, stagger } from "@/shared/animations/WebsiteAnimations";
+import { EASE, VIEWPORT, fadeBottom, fadeLeft, fadeRight, popIn, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 export function VolunteerCta() {
   const VOLUNTEER_DATA = {

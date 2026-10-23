@@ -1,7 +1,11 @@
+import { Trash } from "lucide-react"
+import { useState } from "react"
 import { cow_feeding, cows, farm, gaushala, gurudev, visitors_icon } from "@/assets/admin_assets"
 import type { GalleryListTypes } from "../Types"
-import { Trash } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import Header from "./Header"
+import CustomModal from "@/shared/CustomModal"
+import AddEditGallery from "./modals/AddEditGallery"
 
 
 const GalleryData: GalleryListTypes[] = [
@@ -14,15 +18,19 @@ const GalleryData: GalleryListTypes[] = [
 ]
 
 const GalleryList = () => {
+    const [showUploadModal, setShowUploadModal] = useState<boolean>(false);
     return (
         <div className="flex flex-col gap-2">
+            <Header
+                setShowUploadModal={setShowUploadModal}
+            />
             <p className="font-saira font-medium tracking-[0.09px] text-base">Albums</p>
             <div className="flex flex-col lg:flex-row gap-3">
                 {
                     GalleryData?.map((item, index) => (
                         <div key={index} className="relative backdrop-blur-lg bg-[#00000012] p-1 rounded-md shadow-md ">
                             <div>
-                                <img src={item.icon} alt={item.name}  className="object-contain w-full h-auto"/>
+                                <img src={item.icon} alt={item.name} className="object-contain w-full h-auto" />
                             </div>
                             <Card className="flex justify-between rounded-md bg-[#ffffff] absolute p-2 left-0 right-0 m-1 bottom-0">
                                 <div className="font-saira">
@@ -37,6 +45,18 @@ const GalleryList = () => {
                     ))
                 }
             </div>
+            {
+                showUploadModal && (
+                    <CustomModal
+                        open={showUploadModal}
+                        onOpenChange={setShowUploadModal}
+                    >
+                        <AddEditGallery
+                            setOpen={setShowUploadModal}
+                        />
+                    </CustomModal>
+                )
+            }
         </div>
     )
 }

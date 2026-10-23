@@ -24,7 +24,7 @@ const AddBanner = () => {
         mode: "onChange"
     });
 
-    const handleHomeData = async (data: BannerValues) => {
+    const handleBannerData = async (data: BannerValues) => {
         const isValid = await trigger();
         if (!isValid) return;
         const payload = {
@@ -64,7 +64,7 @@ const AddBanner = () => {
 
     return (
         <Card className="border! border-[#4caf50]! rounded-md! py-4 px-4">
-            <form onSubmit={handleSubmit(handleHomeData)} className=" flex flex-col gap-2">
+            <form onSubmit={handleSubmit(handleBannerData)} className=" flex flex-col gap-2">
                 <div className="flex justify-between">
                     <p className="font-saira font-normal text-sm text-[#4caf50]">Breed Top Banner</p>
                     <CustomButton
@@ -74,7 +74,7 @@ const AddBanner = () => {
                         className='w-fit! py-0.5! px-4! bg-green-theme! rounded-sm bg-blue-theme!'
                     />
                 </div>
-                <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex flex-col lg:flex-row gap-6">
                     <div className="relative w-full lg:w-[30%] min-h-40 max-h-40 h-40">
                         <FilesUpload
                             onFilesAccepted={onDrop}

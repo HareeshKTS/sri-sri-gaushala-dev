@@ -1,10 +1,10 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
-import HeroBanner from "./components/HeroBanner";
 import { PhotoCard } from "./components/PhotoCard";
 import { Lightbox } from "./components/Lightbox";
 import CustomDropDown from "@/shared/CustomDropDown";
-import { ManyCows } from "@/assets/website_assets";
+import { GalleryBannerImage, ManyCows } from "@/assets/website_assets";
+import HeroBannerSection from "@/shared/website_shared_cmpnts/HeroBannerSection";
 
 interface Photo {
   id: string;
@@ -53,7 +53,8 @@ const Gallery = () => {
   return (
     <MotionConfig reducedMotion="user">
       <main className="min-h-screen w-full overflow-x-clip bg-[#fffcf6]">
-        <HeroBanner
+        <HeroBannerSection
+          image={GalleryBannerImage}
           badge={"Gallery"}
           quote={"Every photograph tells a story of compassion, care and the timeless bond between humanity and Gau Mata."}
         />

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BLOGS, BLOGS_BASE_PATH, formatBlogDate } from "./components/BlogsDummyData";
 import { ArticleHero } from "./components/ArticleHero";
 import { ArticleBody } from "./components/ArticleBody";
-import { fadeBottom } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 const BackLink = () => (
   <Link

@@ -3,8 +3,23 @@ import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "./NavRoutes";
 import { ChevronDown, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router";
-import { GaushalaAppLogo } from "@/assets/website_assets";
-
+import CustomDropDown from "@/shared/CustomDropDown";
+const LANGUAGES_OPTIONS = [
+    { label: "English", value: "english" },
+    { label: "हिन्दी", value: "hindi" },
+    { label: "ಕನ್ನಡ", value: "kannada" },
+    { label: "తెలుగు", value: "telugu" },
+    { label: "العربية", value: "arabic" },
+    { label: "中文（简体）", value: "chinese_simplified" },
+    { label: "Nederlands", value: "dutch" },
+    { label: "Français", value: "french" },
+    { label: "Deutsch", value: "german" },
+    { label: "ગુજરાતી", value: "gujarati" },
+    { label: "Italiano", value: "italian" },
+    { label: "Português", value: "portuguese" },
+    { label: "Русский", value: "russian" },
+    { label: "Español", value: "spanish" },
+];
 const buttonsClass =
     "whitespace-nowrap rounded-full bg-[#f7941d] border border-[#b74f00] px-5 py-1.5 text-[12px] font-semibold uppercase tracking-wide text-white shadow-md  touchable-opacity";
 
@@ -20,7 +35,7 @@ export default function MobileSidebar({
 }) {
     const [resourcesOpen, setResourcesOpen] = useState(false);
     const { pathname } = useLocation();
-
+    const [selectedLanguage, setSelectedLanguage] = useState({ label: "English", value: "english" })
     const isChildRouteActive = (children?: { to: string }[]) =>
         !!children?.some(
             (c) => pathname === c.to || pathname.startsWith(`${c.to}/`)
@@ -60,7 +75,15 @@ export default function MobileSidebar({
                 className={`fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-[250px] flex-col bg-white shadow-2xl transition-transform duration-300 lg:hidden ${open ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="flex items-center justify-between border-b px-4 py-3">
-                    <img src={GaushalaAppLogo} alt="Logo" className="h-10 w-auto" />
+                    <div className="min-w-[120px]">
+                        <CustomDropDown
+                            value={selectedLanguage}
+                            onChange={setSelectedLanguage}
+                            options={LANGUAGES_OPTIONS}
+                            displayed_text_color={'text-green-theme'}
+                        />
+                    </div>
+                    {/* <img src={GaushalaAppLogo} alt="Logo" className="h-10 w-auto" /> */}
                     <button
                         type="button"
                         aria-label="Close menu"

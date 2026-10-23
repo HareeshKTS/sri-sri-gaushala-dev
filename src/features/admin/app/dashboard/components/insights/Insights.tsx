@@ -65,12 +65,12 @@ const Insights = () => {
                             <div
                                 className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                             w-full h-full p-2 flex flex-col items-center  justify-center gap-0 lg:justify-evenly leading-snug  
-                                            font-stretch-normal"
+                                            font-stretch-normal font-gotham "
                             >
-                                <p className="font-gotham font-bold tracking-[0.17px] text-[clamp(18px,2vw,1.5rem)] text-[#002602]">
+                                <p className="font-bold tracking-[0.17px] text-[clamp(18px,2vw,1.5rem)] text-[#002602]">
                                     {item.title}
                                 </p>
-                                <p className="font-medium text-green-theme  text-[clamp(18px,2.5vw,2.2rem)]">
+                                <p className="font-saira font-medium text-green-theme  text-[clamp(18px,2.5vw,2.2rem)]">
                                     {item.count}
                                 </p>
                                 <div className="flex gap-1 items-center">

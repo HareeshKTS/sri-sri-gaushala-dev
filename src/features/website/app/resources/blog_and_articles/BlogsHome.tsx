@@ -1,11 +1,13 @@
-import HeroBanner from "./components/HeroBanner";
 import { BlogCard } from "./components/BlogCard";
 import { BLOGS } from "./components/BlogsDummyData";
+import HeroBannerSection from "@/shared/website_shared_cmpnts/HeroBannerSection";
+import { BlogBannerImage } from "@/assets/website_assets";
 
 const BlogsHome = () => {
   return (
     <main className={`min-h-screen w-full overflow-x-clip bg-[#fffcf6]`}>
-      <HeroBanner
+      <HeroBannerSection
+        image={BlogBannerImage}
         badge={"BLOG & ARTICLES"}
         quote={"A sanctuary where every cow is cherished. A future built on care, kindness, and sustainability."}
       />

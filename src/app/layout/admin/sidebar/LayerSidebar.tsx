@@ -16,7 +16,7 @@ const LayerSidebar: React.FC<LayerProps> = ({  openSidebar, setOpenSidebar, star
                 />
             )}
             <div
-                className={` z-50
+                className={` z-99999!
               transition-all ease-in-out duration-500  fixed left-0 top-0 bottom-0 
               ${openSidebar ? 'translate-x-0' : '-translate-x-full'}`}
             >

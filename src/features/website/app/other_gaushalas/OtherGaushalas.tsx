@@ -1,7 +1,7 @@
 import { MotionConfig } from "motion/react";
-import HeroBanner from "./components/HeroBanner";
 import { GaushalaCard } from "./components/GaushalaCard";
-import { ManyCows } from "@/assets/website_assets";
+import { GaushalaPlantVideo, ManyCows } from "@/assets/website_assets";
+import HeroBannerSection from "@/shared/website_shared_cmpnts/HeroBannerSection";
 
 interface Gaushala {
   id: string;
@@ -25,7 +25,9 @@ const OtherGaushalas = () => {
   return (
     <MotionConfig reducedMotion="user">
       <main className="min-h-screen w-full overflow-x-clip bg-[#fffcf6]">
-        <HeroBanner
+        <HeroBannerSection
+          image={GaushalaPlantVideo}
+          IsVideo={true}
           badge={"OTHER GAUSHALAS"}
           quote={"A sanctuary where every cow is cherished. A future built on care, kindness, and sustainability."}
         />

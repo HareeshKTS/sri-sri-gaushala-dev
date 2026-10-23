@@ -1,6 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { EalderCow, FarmerImage,PreserveBreed } from "@/assets/website_assets";
-import { EASE, fadeBottom, fadeRight, stagger } from "@/shared/animations/WebsiteAnimations";
+import { EASE, fadeBottom, fadeRight, stagger } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 interface Activity {
   id: string;

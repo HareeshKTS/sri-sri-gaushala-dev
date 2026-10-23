@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { EASE, fadeLeft, fadeRight, reveal } from "@/shared/animations/WebsiteAnimations";
+import { EASE, fadeLeft, fadeRight, reveal } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 const visionArray = [
   { text: "Establish Gau Purna Sthapana to strengthen the nation." },

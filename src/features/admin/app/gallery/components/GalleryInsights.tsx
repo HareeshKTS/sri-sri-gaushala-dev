@@ -49,20 +49,18 @@ const GalleryInsights = () => {
                         key={idx}
                         className="rounded-sm bg-white"
                     >
-                        <div className="relative ">
-                            <div
-                                className="h-full p-2 flex flex-col items-center  justify-center gap-0   
-                                           font-stretch-normal leading-snug"
-                            >
-                                <p className="font-gotham font-bold tracking-[0.17px] text-[clamp(20px,2.5vw,1.5rem)] text-[#002602]">
-                                    {item.title}
-                                </p>
-                                <p className="font-medium  text-green-theme font text-[clamp(18px,2.5vw,2rem)]">
-                                    {item.count}
-                                </p>
-                                <div className="flex gap-1 items-center">
-                                    <p className="font-normal text-sm text-green-theme">{item.name}</p>
-                                </div>
+                         <div
+                            className="h-full p-2 flex-1 flex flex-col items-center text-center justify-center gap-0   
+                                      font-stretch-normal leading-snug font-gotham "
+                        >
+                            <p className=" font-bold tracking-[0.17px] text-[clamp(18px,2vw,1rem)] text-[#002602]">
+                                {item.title}
+                            </p>
+                            <p className="font-saira font-semibold  text-green-theme font text-[clamp(16px,2vw,1.5rem)]">
+                                {item.count}
+                            </p>
+                            <div className="flex gap-1 items-center">
+                                <p className="font-normal text-sm text-green-theme">{item.name}</p>
                             </div>
                         </div>
                     </Card>

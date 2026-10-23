@@ -56,7 +56,7 @@ const SanctuarySection = ({ form }: Props) => {
     return (
         <section className="px-2 sm:px-6  border-b border-b-[#D4DFD5] pb-6 md:pb-0">
             <div className="w-full md:flex gap-6">
-                <div className="pt-3 md:w-[30%]">
+                <div className="pt-3 md:w-[30%] xl:w-[35%]">
                     <Switch
                         checked={isSanctuaryEnabled}
                         onCheckedChange={setIsSanctuaryEnabled}
@@ -72,7 +72,7 @@ const SanctuarySection = ({ form }: Props) => {
                 ? "opacity-70"
                 : ""
                 }`}>
-                <div className="md:w-[30%] relative py-6">
+                <div className="md:w-[30%] xl:w-[35%] relative py-6">
 
 
 
@@ -124,19 +124,19 @@ const SanctuarySection = ({ form }: Props) => {
                         )
                     } */}
 
-                    <div className="relative w-full min-h-40 max-h-60 h-60">
+                    <div className="relative w-full min-h-40 max-h-52 h-52">
                         <FilesUpload
                             onFilesAccepted={onDrop}
                             maxFiles={1}
                             disabled={!isSanctuaryEnabled}
                             FileClassName="flex flex-col gap-1 items-center justify-center"
                             fileText="Click To Browse"
-                            dimensionText="Images: 1080 × 1920 px | Videos: Maximum 30 MB"
-                            className={`bg-white shadow-lg border-none ${!isSanctuaryEnabled
+                            dimensionText="Recommended Dimensions: 1080 × 1920 px Maximum Video Size: 30 MB"
+                            className={`bg-white shadow-lg border-none px-2 ${!isSanctuaryEnabled
                                     ? "pointer-events-none opacity-50 cursor-not-allowed "
                                     : selectedFile
                                         ? "border-none"
-                                        : "border-none! bg-white rounded-md"
+                                        : "border-none! bg-white rounded-lg"
                                 }`}
                             hasFiles={!!selectedFile}
                             acceptFiles={{
@@ -188,9 +188,9 @@ const SanctuarySection = ({ form }: Props) => {
 
                 <div className="border-r border-[#D4DFD5]" />
 
-                <div className="flex flex-col gap-y-4 sm:grid  md:grid-cols-2 gap-6 lg:col-span-2 md:w-[70%]">
-
-                    <div>
+                <div className="md:w-[70%] space-y-4">
+                     <div className="flex gap-6">
+                    <div className="w-full">
                         {/* <label className="text-sm font-medium">
             CTA Button Text
           </label>
@@ -213,7 +213,7 @@ const SanctuarySection = ({ form }: Props) => {
                         />
                     </div>
 
-                    <div>
+                    <div className="w-full">
                         {/* <label className="text-sm font-medium">
                         CTA Button URL
                     </label>
@@ -236,6 +236,7 @@ const SanctuarySection = ({ form }: Props) => {
                             }}
                         />
                     </div>
+                    </div>
 
                     <div className="col-span-2">
                         {/* <label className="text-sm font-medium">
@@ -254,6 +255,7 @@ const SanctuarySection = ({ form }: Props) => {
                             LabelClassName="font-medium text-sm"
                             disabled={!isSanctuaryEnabled}
                             placeholder="A Sanctuary of Compassion, Culture and Care"
+                            className="min-h-36!"
                             rules={{
                                 required: isSanctuaryEnabled ? "Required" : false,
                             }}

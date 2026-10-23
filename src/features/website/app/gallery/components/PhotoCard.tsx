@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ZoomIn } from "lucide-react";
-import { fadeBottom } from "@/shared/animations/WebsiteAnimations";
+import { fadeBottom } from "@/shared/website_shared_cmpnts/animations/WebsiteAnimations";
 
 interface PhotoCardData {
   src: string;

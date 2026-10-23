@@ -16,4 +16,10 @@ export type GalleryTableTypes = {
     type: string;
     date: string;
     views: string;
+    status:string;
 }   
+
+export type AddEditTypes={
+    album_name:string;
+    create_album:string;
+}

@@ -74,7 +74,7 @@ const AddBanner = () => {
                         className='w-fit! py-0.5! px-4! bg-green-theme! rounded-sm bg-blue-theme!'
                     />
                 </div>
-                <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex flex-col lg:flex-row gap-6">
                     <div className="relative w-full lg:w-[30%] min-h-40 max-h-40 h-40">
                         <FilesUpload
                             onFilesAccepted={onDrop}
