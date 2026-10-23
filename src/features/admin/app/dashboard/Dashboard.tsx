@@ -1,5 +1,6 @@
 import Activities from "./components/activities/Activities"
 import Analytics from "./components/analytics/Analytics"
+
 import Insights from "./components/insights/Insights"
 
 const Dashboard = () => {
